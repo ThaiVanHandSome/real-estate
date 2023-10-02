@@ -1,0 +1,151 @@
+:root{
+    --black: #000;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #FFC600;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 2.4rem;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+/* Hot */
+.hot{
+    color: var(--white);
+    background-color: #dc3545;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    line-height: normal;
+    padding: 0 2px;
+    border-radius: 4px;
+    margin-right: 4px;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* Button */
+.btn{
+    --size: 35px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #ffffffcc;
+    cursor: pointer;
+    transition: all .3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    z-index: 100;
+}
+
+.btn:hover{
+    border: none;
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.btn-left{
+    left: 3%;
+}
+
+.btn-right{
+    right: 3%;
+}
+
+/* Heading */
+.heading{
+    margin: 32px 0;
+    text-align: center;
+}
+
+.heading__line{
+    width: 150px;
+    border-bottom: 8px solid var(--primary);
+    margin: 48px auto;
+    line-height: 3.6rem;
+}
+
+.heading__text{
+    font-size: 4.5rem;
+    font-weight: bold;
+    line-height: normal;
+    color: #272525;
+    margin: 50px 0 50px 0;
+}
+
+/* Appear */
+.menuAppear{
+    transform: translateX(0);
+    transition: all .5s;
+}
+
+.btnCloseAppear{
+    top: 0;
+    opacity: 1;
+    z-index: 100000;
+}
+
+.overlayAppear{
+    opacity: 1;
+    z-index: 6050;
+    display: block;
+}
+
+.whiteClose{
+    color: var(--white);
+}
+
+.searchAppear{
+    top: 50%;
+    opacity: 1;
+    z-index: 100000;
+}
+
+.subMenuAppear{
+    display: block;
+}
+
+.subMenuClose{
+    display: none !important;
+}
+
+

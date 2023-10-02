@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./asset/img/logo/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./asset/css/main.css">
+    <link rel="stylesheet" href="./vendor/css/grid.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/responsive.css">
+    <title>Real Estate</title>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Form đăng ký -->
+        <div class="form" id="form__register">
+            <div class="form__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="form-header">
+                <div class="form-header-text">
+                    ĐĂNG KÝ
+                </div>
+            </div>
+            <div class="form-content">
+                <div class="form__group">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Họ và tên</span>
+                    <input type="text" placeholder="VD: Thái Văn" name="name" id="name" class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                    <input type="text" placeholder="VD: van@gmail.com" name="email" id="email" class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Mật khẩu</span>
+                    <input type="password" name="password" placeholder="Nhập mật khẩu" id="password"
+                        class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Nhập lại mật khẩu</span>
+                    <input type="password" name="password__confirmation" placeholder="Nhập lại mật khẩu"
+                        id="password__confirmation" class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form đăng nhập-->
+        <div class="form" id="form__login">
+            <div class="form__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="form-header">
+                <div class="form-header-text">
+                    ĐĂNG NHẬP
+                </div>
+            </div>
+            <div class="form-content">
+                <div class="form__group">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Họ và tên</span>
+                    <input type="text" placeholder="VD: Thái Văn" name="name" id="name" class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                    <input type="text" placeholder="VD: van@gmail.com" name="email" id="email" class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Mật khẩu</span>
+                    <input type="password" name="password" placeholder="Nhập mật khẩu" id="password"
+                        class="input__label">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tạo một lớp overlay khi menu hoặc thanh search xuất hiện -->
+        <div class="app__overlay">
+        </div>
+
+        <!-- Nút close khi menu hoặc thanh search xuất hiện -->
+        <div class="app__menu-close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <!-- Thanh search khi nhấn icon search -->
+        <div class="app__search">
+            <input type="text" placeholder="Tìm dự án" name="" id="" class="app__input">
+            <div class="app__search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <!-- Thông báo đăng kí thành công hay thất bại khi nhấn đăng kí -->
+        <div class="app__notify">
+        </div>
+
+        <!-- Menu khi nhấn vào nút bar -->
+        <div class="app__menu">
+            <ul class="app__menu-list">
+                <li class="header__item header__register"><a href="#" class="header__item-link">
+                        ĐĂNG KÝ
+                    </a></li>
+                <li class="header__item header__login"><a href="#" class="header__item-link">
+                        ĐĂNG NHẬP
+                    </a></li>
+                <li class="header__item"><a href="#" class="header__item-link">
+                        TRANG CHỦ
+                    </a></li>
+                <li class="header__item"><a href="#" class="header__item-link">
+                        GIỚI THIỆU
+                    </a></li>
+                <li class="header__item header__item-have-menu">
+                    <a href="#" class="header__item-link">
+                        DỰ ÁN ĐẦU TƯ
+                        <div class="header__item-icon">
+                            <i class="fa-solid fa-angle-up"></i>
+                        </div>
+                    </a>
+                    <ul class="header__item-menu">
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Meyhomes Capital</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Grand World</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>The Origami - TP.Thủ Đức</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Lumière Riverside</p>
+                            </a></li>
+                        </a>
+                </li>
+            </ul>
+            <li class="header__item"><a href="#" class="header__item-link">
+                    TIN TỨC
+                </a></li>
+            <li class="header__item"><a href="#" class="header__item-link">
+                    LIÊN HỆ
+                </a></li>
+            </ul>
+        </div>
+        <!-- ----------------------------------------------------- -->
+
+
+        <header class="header">
+
+            <!-- Nút bars, nút này chỉ xuất hiện trên tablet và mobile -->
+            <div class="header__menu header__icon hide-on-pc">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <a class="header__logo-link" href="#">
+                <img src="./asset/img/logo/logo-demo-dark.svg" alt="Logo" class="header__logo">
+            </a>
+            <!-- Nút search, tương tự như nút bars -->
+            <div class="header__search header__icon hide-on-pc">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <ul class="header__list hide-on-mobile-tablet">
+                <li class="header__item header__item--active"><a href="" class="header__item-link">
+                        TRANG CHỦ
+                    </a></li>
+                <li class="header__item"><a href="" class="header__item-link">
+                        GIỚI THIỆU
+                    </a></li>
+                <li class="header__item">
+                    <a href="" class="header__item-link">
+                        DỰ ÁN ĐẦU TƯ
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <ul class="header__item-menu">
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Meyhomes Capital</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Grand World</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>The Origami - TP.Thủ Đức</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Lumière Riverside</p>
+                            </a></li>
+                        <li class="header__item-menu-item"><a href="#" class="header__item-menu-item-link">
+                                <span class="hot">hot</span>
+                                <p>Gem Sky World</p>
+                            </a></li>
+                    </ul>
+                </li>
+                <li class="header__item"><a href="" class="header__item-link">
+                        TIN TỨC
+                    </a></li>
+                <li class="header__item"><a href="" class="header__item-link">
+                        LIÊN HỆ
+                    </a></li>
+            </ul>
+            <div class="header__form hide-on-mobile-tablet">
+                <div class="header__form-item header__register">
+                    ĐĂNG KÝ
+                    <i class="fa-solid fa-registered"></i>
+                </div>
+                <div class="header__form-item header__login">
+                    ĐĂNG NHẬP
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+            </div>
+        </header>
+        <div class="slider-wrapper">
+            <div class="slider">
+                <div class="btn btn-left slider__btn-left">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="slider-content-container">
+                    <div class="slider__content">
+                        <p class="slider__content-name">MEYHOMES CAPITAL - PHÚ QUỐC</p>
+                        <p class="slider__content-desc">
+                            THÀNH PHỐ ĐẢO NHIỆT ĐỚI<span style="color: var(--primary);"> ĐA SẮC MÀU</span>
+                        </p>
+                        <div class="slider__content-btn">
+                            Tham khảo thêm
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__bg-container">
+                    <div class="slider__bg slider__bg-1">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="slider__bg slider__bg-2">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="slider__bg slider__bg-3">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="slider__bg slider__bg-4">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="slider__bg slider__bg-5">
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="btn btn-right slider__btn-right">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="app__container">
+            <div class="about">
+                <div class="about__container">
+                    <div class="grid wide">
+                        <div class="row">
+                            <div class="col l-4 m-4 c-12">
+                                <div class="about__item">
+                                    <p class="about__item-heading">TẦM NHÌN</p>
+                                    <p class="about__item-desc">Trở thành nhà tư vấn và tiếp thị Bất động sản uy tín
+                                        tới
+                                        khách hàng.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col l-4 m-4 c-12">
+                                <div class="about__item">
+                                    <p class="about__item-heading">SỨ MỆNH</p>
+                                    <p class="about__item-desc">Trở thành đối tác đáng tin cậy của chủ đầu tư và
+                                        khách
+                                        hàng.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col l-4 m-4 c-12">
+                                <div class="about__item">
+                                    <p class="about__item-heading">GIÁ TRỊ</p>
+                                    <p class="about__item-desc">Luôn tận tâm với đối tác, dùng trọn chữ Tín để tạo
+                                        dựng
+                                        niềm tin.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row about__meyhomes">
+                            <div class="col l-6 m-12 c-12">
+                                <div class="about__meyhomes-wrapper">
+                                    <div class="btn btn-left about__btn-left">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </div>
+                                    <div class="btn btn-right about__btn-right">
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                    <ul class="about__option">
+                                        <li class="about__option-item active" data-index="1"></li>
+                                        <li class="about__option-item" data-index="2"></li>
+                                        <li class="about__option-item" data-index="3"></li>
+                                        <li class="about__option-item" data-index="4"></li>
+                                        <li class="about__option-item" data-index="5"></li>
+                                        <li class="about__option-item" data-index="6"></li>
+                                    </ul>
+                                    <div class="about__meyhomes-container-img">
+                                        <div class="about__meyhomes-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col l-6 m-12 c-12">
+                                <div class="about__meyhomes-content">
+                                    <h1 class="about__meyhomes-content-heading">
+                                        Meyhome Capitals
+                                    </h1>
+                                    <div class="about__line"></div>
+                                    <p class="about__meyhomes-content-text">
+                                        <span class="about__meyhomes-content-text-active">Meyhome Capitals</span>
+                                        được
+                                        thành lập từ năm 2009.
+                                        Sau gần 10 năm hình thành và phát
+                                        triển, đến nay Meyhome Capitals đã khẳng định được uy tín và năng lực cạnh
+                                        tranh
+                                        hàng đầu trong ngành tư vấn, phân phối Bất động sản tại Việt Nam.
+                                    </p>
+                                    <p class="about__meyhomes-content-text">
+                                        Với tôn chỉ hoạt động: <span class="about__meyhomes-content-text-active">Trọn
+                                            chữ TÍN – Vẹn niềm
+                                            TIN</span>, chúng tôi đã nỗ lực trở
+                                        thành kênh tư vấn tin cậy, mang đến cho khách hàng những dự án, sản phẩm đầu
+                                        tư
+                                        chất lượng và tiềm năng sinh lời cao nhất.
+                                    </p>
+                                    <p class="about__meyhomes-content-text">
+                                        Trong suốt quá trình hoạt động, bằng cách làm việc chuyên nghiệp, chính xác,
+                                        tận
+                                        tình, luôn hỗ trợ hết mình cho khách hàng, đội ngũ chuyên viên tư vấn của
+                                        <span class="about__meyhomes-content-text-active">Meyhome Capitals</span>
+                                        luôn
+                                        là cầu nối uy tín giữa
+                                        chủ đầu tư và khách hàng.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="outstanding-projects">
+                <div class="grid wide">
+                    <div class="heading">
+                        <div class="heading__line"></div>
+                        <div class="heading__text">Dự án nổi bật</div>
+                    </div>
+                    <div class="row">
+                        <div class="col l-3 m-6 c-12">
+                            <div class="outstanding-projects__item">
+                                <div class="outstanding-projects__item-img-container">
+                                    <div class="outstanding-projects__item-img"
+                                        style="background-image: url('./asset/img/slider/slider_1.jpg');">
+                                        <div class="slide"></div>
+                                    </div>
+                                </div>
+                                <div class="outstanding-projects__item-content">
+                                    <div class="outstanding-projects__item-line"></div>
+                                    <h1 class="outstanding-projects__item-heading">Meyhomes Capital <span
+                                            class="hot">HOT</span></h1>
+                                    <div class="outstanding-projects__item-btn">Tham khảo thêm
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-12">
+                            <div class="outstanding-projects__item">
+                                <div class="outstanding-projects__item-img-container">
+                                    <div class="outstanding-projects__item-img"
+                                        style="background-image: url('./asset/img/slider/slider_2.jpg');">
+                                        <div class="slide"></div>
+                                    </div>
+                                </div>
+                                <div class="outstanding-projects__item-content">
+                                    <div class="outstanding-projects__item-line"></div>
+                                    <h1 class="outstanding-projects__item-heading">Grand World Phú Quốc <span
+                                            class="hot">HOT</span></h1>
+                                    <div class="outstanding-projects__item-btn">Tham khảo thêm
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-12">
+                            <div class="outstanding-projects__item">
+                                <div class="outstanding-projects__item-img-container">
+                                    <div class="outstanding-projects__item-img"
+                                        style="background-image: url('./asset/img/slider/slider_3.jpg');">
+                                        <div class="slide"></div>
+                                    </div>
+                                </div>
+                                <div class="outstanding-projects__item-content">
+                                    <div class="outstanding-projects__item-line"></div>
+                                    <h1 class="outstanding-projects__item-heading">The Origami Quận 9 <span
+                                            class="hot">HOT</span></h1>
+                                    <div class="outstanding-projects__item-btn">Tham khảo thêm
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-3 m-6 c-12">
+                            <div class="outstanding-projects__item">
+                                <div class="outstanding-projects__item-img-container">
+                                    <div class="outstanding-projects__item-img"
+                                        style="background-image: url('./asset/img/slider/slider_4.jpg');">
+                                        <div class="slide"></div>
+                                    </div>
+                                </div>
+                                <div class="outstanding-projects__item-content">
+                                    <div class="outstanding-projects__item-line"></div>
+                                    <h1 class="outstanding-projects__item-heading">Lumière Riverside <span
+                                            class="hot">HOT</span></h1>
+                                    <div class="outstanding-projects__item-btn">Tham khảo thêm
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="count">
+                <div class="grid wide">
+                    <div class="row">
+                        <div class="col l-4 m-12 c-12">
+                            <div class="count__item">
+                                <div class="count__value customer-count">
+                                    123
+                                </div>
+                                <span class="count__text">
+                                    KHÁCH HÀNG ĐẦU TƯ
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col l-4 m-12 c-12">
+                            <div class="count__item">
+                                <div class="count__value project-count">
+                                    123
+                                </div>
+                                <span class="count__text">
+                                    DỰ ÁN THAM GIA
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col l-4 m-12 c-12">
+                            <div class="count__item">
+                                <div class="count__value success-count">
+                                    123
+                                </div>
+                                <span class="count__text">
+                                    ĐẦU TƯ DỰ ÁN THÀNH CÔNG
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="grid wide">
+                    <div class="testimonial__heading">
+                        <div class="heading">
+                            <div class="heading__line"></div>
+                            <div class="heading__text">Hơn 35 năm hoạt động trong lĩnh vực bất động sản</div>
+                        </div>
+                    </div>
+                    <p class="testimonial__desc">
+                        Chúng tôi tự hào khi hợp tác thành công với các đối tác chiến lược mang lại giá trị cao tới
+                        Quý
+                        khách hàng.
+                    </p>
+                    <div class="row">
+                        <div class="col l-3 m-3 c-12"></div>
+                        <div class="col l-3 m-3 c-12">
+                            <div class="testimonial__item-img">
+                                <img src="./asset/img/testimonial/vingroup.png" alt="" class="testimonial__img">
+                            </div>
+                        </div>
+                        <div class="col l-3 m-3 c-12">
+                            <div class="testimonial__item-img">
+                                <img src="./asset/img/testimonial/tan-a-dai-thanh.png" alt="" class="testimonial__img">
+                            </div>
+                        </div>
+                        <div class="col l-3 m-3 c-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-4 m-12 c-12">
+                        <div class="footer__item footer__contact">
+                            <div class="footer__heading">
+                                LIÊN HỆ TƯ VẤN
+                            </div>
+                            <div class="footer__line"></div>
+                            <div class="footer__hotline">
+                                <img src="./asset/img/footer/hotline.gif" alt="Hotline" class="footer__hotline-img">
+                                <span class="footer__hot-line-phone-number">0123 456 789</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-12 c-12">
+                        <div class="footer__item footer__infor">
+                            <div class="footer__heading">
+                                VĂN PHÒNG GIAO DỊCH
+                            </div>
+                            <div class="footer__line"></div>
+                            <p class="footer__infor-text">
+                                Trụ sở: 9999 Hoàng Hoa Thám, Hà Nội
+                            </p>
+                            <p class="footer__infor-text">
+                                Chi nhánh: 9999 Nguyễn Huệ, TP. Hồ Chí Minh
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col l-4 m-12 c-12">
+                        <div class="footer__item footer__form">
+                            <div class="footer__heading">
+                                ĐĂNG KÍ NHẬN THÔNG TIN
+                            </div>
+                            <div class="footer__line"></div>
+                            <input type="text" name="name" id="" class="footer__inp" placeholder="Tên của bạn">
+                            <input type="number" name="phone-number" id="" class="footer__inp"
+                                placeholder="Số điện thoại liên hệ">
+                            <select name="" id="footer__option" class="footer__inp">
+                                <option class="footer__option-item" value="" hidden>Please choose an option</option>
+                                <option class="footer__option-item" value="Meyhomes Capital - Phú Quốc"
+                                    selected="selected">
+                                    Meyhomes Capital - Phú Quốc
+                                </option>
+                                <option class="footer__option-item" value="Grand World - Phú Quốc">
+                                    Grand World - Phú Quốc
+                                </option>
+                                <option class="footer__option-item" value="The Origami - Quận 9, HCM">
+                                    The Origami - Quận 9, HCM
+                                </option>
+                            </select>
+                            <div class="footer__submit">ĐĂNG KÝ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+    </script>
+    <!-- <script src="./asset/js/slider.js"></script> -->
+    <script src="./asset/js/slider.js"></script>
+    <script src="./asset/js/handleScroll.js"></script>
+    <!-- <script src="./asset/js/headerWhenScroll.js"></script> -->
+    <script src="./asset/js/about.js"></script>
+    <script src="./asset/js/saveData.js"></script>
+    <script type="module" src="./asset/js/headerMobileTablet.js"></script>
+    <!-- <script src="./asset/js/login.js"></script> -->
+    <script type="module" src="./asset/js/handleLogin.js"></script>
+    <script type="module" src="./asset/js/handleValidator.js"></script>
+</body>
+
+</html>
